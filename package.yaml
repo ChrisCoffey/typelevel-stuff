@@ -1,0 +1,50 @@
+name:                typelevel-stuff
+version:             0.1.0.0
+github:              "ChrisCoffey/typelevel-stuff"
+license:             BSD3
+author:              "Chris Coffey"
+maintainer:          "chris@foldl.io"
+copyright:           "2019 Chris Coffey"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/ChrisCoffey/typelevel-stuff#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  default-extensions: ConstraintKinds DataKinds GADTs ScopedTypeVariables TypeApplications TypeFamilies TypeOperators UndecidableInstances
+    FlexibleInstances
+
+executables:
+  typelevel-stuff-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - typelevel-stuff
+
+tests:
+  typelevel-stuff-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - typelevel-stuff
