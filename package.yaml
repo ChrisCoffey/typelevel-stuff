@@ -25,7 +25,7 @@ dependencies:
 library:
   source-dirs: src
   default-extensions: ConstraintKinds DataKinds GADTs ScopedTypeVariables TypeApplications TypeFamilies TypeOperators UndecidableInstances
-    FlexibleInstances
+    FlexibleInstances RankNTypes ExistentialQuantification
 
 executables:
   typelevel-stuff-exe:
