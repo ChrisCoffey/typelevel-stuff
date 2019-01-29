@@ -19,12 +19,6 @@ instance Applicative Cont where
 
 -- Run a, then b
 instance Monad Cont where
-    Cont ar >>= f = Cont $ \b ->
-       ar $ \a ->
-        unCont (f a) b
-    -- The following typechecks, but does it obey the monad laws?
-    -- left & right return are obeyed
-    -- Need to have a think about wether its associative
-    -- Cont ar >>= f = let
-    --      a = ar id
-    --      in f a
+    Cont ar >>= f =  f (ar id)
+
+
